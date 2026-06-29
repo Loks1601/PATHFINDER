@@ -36,4 +36,4 @@ So I have written the firmware with some help with AI...
 BOM:
 BOM:
 
-<img width="805" height="171" alt="image" src="https://github.com/user-attachments/assets/a678e164-bb7a-4c51-bba0-d32b211f16b7" />
+<img width="627" height="167" alt="image" src="https://github.com/user-attachments/assets/a0af1a8d-5629-4d74-96c7-6942b807c701" />
