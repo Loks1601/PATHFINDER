@@ -39,10 +39,8 @@ The goal of this project was not only to build a functional button box, but also
 
 ## PCB Layout
 
-<p align="center">
-  <img src="<img width="847" height="837" alt="Screenshot 2026-06-29 115307" src="https://github.com/user-attachments/assets/a7b24cc0-a88f-42a7-8fa5-e1c219185dfc" />
-" alt="PCB Layout" width="850">
-</p>
+<img width="847" height="837" alt="Screenshot 2026-06-29 115307" src="https://github.com/user-attachments/assets/b28e03de-5013-4ace-ae16-28acd6300dcb" />
+
 
 The PCB was designed in **KiCad** with simplicity and readability in mind. The XIAO RP2040 sits on the right side of the board, while the three push buttons occupy the lower section for comfortable access. Three LEDs with their respective resistors are positioned at the top as status indicators. The routing was intentionally kept clean to make the board easier to understand and modify.
 
@@ -50,10 +48,8 @@ The PCB was designed in **KiCad** with simplicity and readability in mind. The X
 
 ## Schematic
 
-<p align="center">
-  <img src="<img width="757" height="346" alt="image" src="https://github.com/user-attachments/assets/7bce073d-4322-44ff-a7c4-dbf5c3397c7a" />
-" alt="Circuit Schematic" width="850">
-</p>
+<img width="757" height="346" alt="image" src="https://github.com/user-attachments/assets/cd31feba-68ab-420e-ab51-d4ba301bf879" />
+
 
 The schematic connects each push button directly to a dedicated GPIO pin on the RP2040. Each LED is driven from its own GPIO through a current-limiting resistor. All switches share a common ground, keeping the circuit straightforward and easy to troubleshoot.
 
@@ -134,9 +130,6 @@ Connect your board via USB and upload the firmware.
 
 ---
 
-## 🤝 Contributing
-
-Contributions, suggestions, and improvements are always welcome. Feel free to fork the repository, submit pull requests, or open issues if you find bugs or have ideas for new features.
 
 ---
 
@@ -144,8 +137,5 @@ Contributions, suggestions, and improvements are always welcome. Feel free to fo
 
 This project is released under the **MIT License**.
 
-If you build your own version, I'd love to see it! Feel free to share your projects or improvements with the community.
 
----
 
-The placeholder comments and `> 📷 Add the image here` lines have been removed and replaced with the centered image tags. Just make sure your image files are named `pcb_layout.png` and `schematic.png` inside the `Images/` folder — or adjust the filenames in the `src` paths if yours differ.
