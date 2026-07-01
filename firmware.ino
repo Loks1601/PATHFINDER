@@ -1,13 +1,13 @@
-
-
 // ── Pin assignments ──────────────────────────────────────────
 const int BUT1 = D0;
 const int BUT2 = D1;
 const int BUT3 = D2;
+const int BUT4 = D6;
 
 const int LED1 = D3;   // PWM capable — used for heartbeat pulse
 const int LED2 = D4;
 const int LED3 = D5;
+const int LED4 = D7;
 
 
 
@@ -47,6 +47,14 @@ long  but3HoldStart  = 0;
 bool  but3Holding    = false;
 bool  but3Triggered  = false; // prevent re-trigger while held
 bool  but3Last       = HIGH;
+
+// ── FEATURE 4 : Strobe Alert (hold B4 → LED4 strobes) ───────
+const long STROBE_INTERVAL_MS = 80;  // on/off toggle period while held
+
+bool  but4Last       = HIGH;
+bool  led4Strobing   = false;
+bool  led4State      = false;
+long  led4LastToggle = 0;
 
 // ── Helpers ──────────────────────────────────────────────────
 
@@ -95,17 +103,20 @@ void setup() {
   pinMode(BUT1, INPUT_PULLUP);
   pinMode(BUT2, INPUT_PULLUP);
   pinMode(BUT3, INPUT_PULLUP);
+  pinMode(BUT4, INPUT_PULLUP);
 
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
 
   analogWrite(LED1, 0);
   digitalWrite(LED2, LOW);
   digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
 
   Serial.begin(115200);
-  Serial.println("Firmware ready — Three Personalities");
+  Serial.println("Firmware ready — Four Personalities");
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -115,6 +126,7 @@ void loop() {
   bool but1 = digitalRead(BUT1);  // LOW = pressed
   bool but2 = digitalRead(BUT2);
   bool but3 = digitalRead(BUT3);
+  bool but4 = digitalRead(BUT4);
 
   // ── Feature 1 : Heartbeat Tap ──────────────────────────────
   // Detect rising edge of press (HIGH→LOW for active-low)
@@ -204,6 +216,29 @@ void loop() {
   but3Last = but3;
 
   digitalWrite(LED3, led3State ? HIGH : LOW);
+
+  // ── Feature 4 : Strobe Alert (hold B4 → LED4 strobes) ──────
+  if (but4 == LOW && but4Last == HIGH) {
+    // Just pressed — start strobing
+    led4Strobing   = true;
+    led4LastToggle = now;
+    led4State      = true;
+    Serial.println("Strobe alert engaged.");
+  }
+  if (but4 == HIGH && but4Last == LOW) {
+    // Just released — stop strobing, LED off
+    led4Strobing = false;
+    led4State    = false;
+    Serial.println("Strobe alert stopped.");
+  }
+  but4Last = but4;
+
+  if (led4Strobing && (now - led4LastToggle) >= STROBE_INTERVAL_MS) {
+    led4State      = !led4State;
+    led4LastToggle = now;
+  }
+
+  digitalWrite(LED4, led4State ? HIGH : LOW);
 
   // Loop runs ~every 1 ms naturally; no delay needed
 }
