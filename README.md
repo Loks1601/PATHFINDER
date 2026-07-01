@@ -1,7 +1,7 @@
 #PATHFINDER
 <img width="1087" height="646" alt="image" src="https://github.com/user-attachments/assets/ced120a3-00e7-44ef-a08b-a303c5233cbc" />
 
-<img width="1077" height="767" alt="image" src="https://github.com/user-attachments/assets/051df7e1-7879-4a3d-b14f-96383a080921" />
+<img width="1077" height="767" alt="image" src="https://github.com/user-attachments/assets/5e03b76a-2daf-487b-9211-d738705e33fb" />
 
 
 My personalised custom Pathfinder for learning and practicing my skills on PCB building and Schematics...
@@ -25,7 +25,8 @@ So I have written the firmware with some help with AI...
 <img width="1162" height="442" alt="image" src="https://github.com/user-attachments/assets/ffb3abc3-314e-4ef6-a8e8-58e31f244ccc" />
 
 
-<img width="1077" height="767" alt="image" src="https://github.com/user-attachments/assets/5e00648c-7075-45f9-810e-326e92973d16" />
+<img width="1077" height="767" alt="image" src="https://github.com/user-attachments/assets/9b2b9ed8-63d1-4547-8b63-208ea90f028a" />
+
 
 
 ## 📚 Software Used
@@ -39,5 +40,6 @@ So I have written the firmware with some help with AI...
 
 
 BOM:
+
 <img width="722" height="366" alt="image" src="https://github.com/user-attachments/assets/64438262-5e09-4a91-9156-b35a71bdb6d3" />
 
